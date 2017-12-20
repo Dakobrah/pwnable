@@ -1,0 +1,14 @@
+//We need to pass our function a string which will then be cast to an int and compared with a hashcode
+//  Big Endian / Little Endian may play a part in this (As my initial hex values were reversed)
+
+./col `python -c 'print "\xC8\xCE\xC5\x06"*4+"\xCC\xCE\xC5\x06"'`
+
+
+Math:
+We need to equal 0x21DD09EC
+int(0x21DD09EC) = 568134124
+
+(568134124 - 4) / 5 = 113626824
+hex(113626824) = 0x6C5CEC8
+
+0x6C5CEC8 * 4 + 0x6C5CECC = 0x21DD09EC
