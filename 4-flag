@@ -1,0 +1,6 @@
+YOU SHOULD PROBABLY RE-DO THIS THE CORRECT WAY!
+
+//Binary Reversing
+//Unpack with UPX, then used strings
+
+The hint was "I will malloc() and strcpy the flag there. take it."
